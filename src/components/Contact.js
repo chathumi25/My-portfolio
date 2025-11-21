@@ -1,56 +1,94 @@
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
-import linkedin from '../assets/img/linkedinIcon.png'
-import email from '../assets/img/emailicon.png'
+import "animate.css";
+import TrackVisibility from "react-on-screen";
+
+import linkedinIcon from "../assets/img/linkedinIcon.png";
+import emailIcon from "../assets/img/emailicon.png";
+import phoneIcon from "../assets/img/phone.svg";
 
 export const Contact = () => {
   const handleLinkedInClick = () => {
-    window.open("http://www.linkedin.com/in/dilmi-ishara-wimalaweera-9891752a2", "_blank");{/*  Linked in  */}
+    window.open("https://www.linkedin.com/in/chathumi-rathnayaka-53b813398", "_blank");
   };
+
   const handleEmailClick = () => {
-    window.open("gmail.com", "_blank");
+    window.open("mailto:chathumirathnayka@gmail.com", "_blank");
+  };
+
+  const handlePhoneClick = () => {
+    window.open("tel:+94779243878", "_self");
   };
 
   return (
     <section className="contact" id="connect">
       <Container>
         <Row className="align-items-center">
-          <Col size={12} md={6}>
+
+          {/* LEFT SIDE IMAGE */}
+          <Col md={6} className="mb-4">
             <TrackVisibility>
               {({ isVisible }) => (
                 <img
                   className={isVisible ? "animate__animated animate__zoomIn" : ""}
                   src={contactImg}
-                  alt="Contact Us"
+                  alt="Contact"
                 />
               )}
             </TrackVisibility>
           </Col>
-          <Col size={12} md={6}>
+
+          {/* RIGHT SIDE TEXT + BUTTONS */}
+          <Col md={6}>
             <TrackVisibility>
               {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Get In Touch</h2>
-                  <div className="new-email-bx">
-                    <button
-                      type="button"
-                      onClick={handleLinkedInClick}
-                      className="linkedin-btn"
-                    >
-                        <img src={linkedin} alt="linkedin"/>
-                      LinkedIn
+                  
+                  <h2 className="mb-4 contact-title">Get In Touch</h2>
+
+                  {/* CONTACT BUTTONS */}
+                  <div className="new-email-bx d-flex flex-column gap-3">
+
+                    {/* PHONE */}
+                    <button type="button" onClick={handlePhoneClick} className="linkedin-btn">
+                      <img src={phoneIcon} alt="phone" />
+                      077 924 3878
                     </button>
-                    <button
-                      type="button"
-                      onClick={handleEmailClick}
-                      className="linkedin-btn"
-                    >
-                    <img src={email} alt="email"/>
-                      chathumiofficial@gmail.com
+
+                    {/* EMAIL */}
+                    <button type="button" onClick={handleEmailClick} className="linkedin-btn">
+                      <img src={emailIcon} alt="email" />
+                      chathumirathnayka@gmail.com
                     </button>
+
+                    {/* LINKEDIN */}
+                    <button type="button" onClick={handleLinkedInClick} className="linkedin-btn">
+                      <img src={linkedinIcon} alt="linkedin" />
+                      LinkedIn Profile
+                    </button>
+
                   </div>
+
+                  {/* ========================= */}
+                  {/* BOTTOM PROFESSIONAL TEXT  */}
+                  {/* ========================= */}
+
+                  <p className="contact-bottom-text">
+                    Whether you have an opportunity, a question, or just want to say hello  
+                    I’m always open to connecting. Feel free to reach out anytime.
+                  </p>
+
+                  <div className="contact-info-line">
+                    📍 Based in Colombo, Sri Lanka | ✔ Available for Internships
+                  </div>
+
+                  
+
+                  {/* FOOTER */}
+                  <div className="contact-footer">
+                    © {new Date().getFullYear()} Chathumi Rathnayaka — All Rights Reserved
+                  </div>
+
                 </div>
               )}
             </TrackVisibility>

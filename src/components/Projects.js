@@ -1,228 +1,350 @@
-import { Container, Row, Col, Tab, Nav, Modal } from "react-bootstrap";
-import { useState } from "react";
-import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/ecommerce.jpg";
-import projImg11 from "../assets/img/ecommerce-1.png";
-import projImg2 from "../assets/img/bookreview.png";
-import projImg3 from "../assets/img/planease.png";
-import projImg4 from "../assets/img/sms.png";
-import projImg5 from "../assets/img/sanake.png";
-import projImg6 from "../assets/img/portfolio.png";
+// frontend/src/components/Projects.jsx
+import React, { useState } from "react";
+import { Container, Row, Col, Tab, Nav, Modal, Button } from "react-bootstrap";
+import TrackVisibility from "react-on-screen";
+import "animate.css";
 
+// Images
+import easyQuizImg from "../assets/img/easyquiz.png";
+import expenseImg from "../assets/img/expense.png";
+import solarImg from "../assets/img/solar.png";
+import miniImg from "../assets/img/mini.png";
+import campusPlusImg from "../assets/img/campusplus.png";
+import quickSwapImg from "../assets/img/quicswap.png";
+import ismImg from "../assets/img/ism.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+
+// Project Card Component
+const ProjectCard = ({ title, description, imgUrl, tags = [], github, live, onClick }) => (
+  <div
+    className="project-card p-3 rounded shadow-sm bg-dark-card"
+    style={{ cursor: "pointer" }}
+    onClick={onClick}
+  >
+    {/* IMAGE */}
+    <div
+      className="project-image mb-3"
+      style={{
+        height: 250,
+        overflow: "hidden",
+        borderRadius: 10,
+        background: "#0a1124",
+      }}
+    >
+      <img
+        src={imgUrl}
+        alt={title}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+    </div>
+
+    {/* TITLE */}
+    <h5
+      className="text-white mb-2 text-center"
+      style={{ fontSize: "20px", fontWeight: "700" }}
+    >
+      {title}
+    </h5>
+
+    {/* DESCRIPTION */}
+    <p
+      className="text-blue mb-2"
+      style={{
+        textAlign: "justify",
+        fontSize: "15px",
+        lineHeight: "1.6",
+        color: "rgba(255,255,255,0.85)",
+      }}
+    >
+      {description}
+    </p>
+
+    {/* TAGS */}
+    <div className="d-flex flex-wrap gap-2 mb-3">
+      {tags.map((t, i) => (
+        <span key={i} className="badge bg-secondary text-white small">
+          {t}
+        </span>
+      ))}
+    </div>
+
+    {/* BUTTONS */}
+    <div className="d-flex justify-content-between">
+      <a className="btn btn-outline-light btn-sm" href={github} target="_blank" rel="noreferrer">
+        Code
+      </a>
+      <a className="btn btn-primary btn-sm" href={live} target="_blank" rel="noreferrer">
+        Live Demo
+      </a>
+    </div>
+  </div>
+);
 
 export const Projects = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const HOST_PLACEHOLDER = "#";
+
+  // ALL PROJECTS
   const projects = [
     {
       id: 1,
-      title: "Forever Ecommerce Website",
-      description: "Development",
+      title: "Easy Quiz",
+      description:
+        "Role-based quiz application (Admin / Student). Admin manages grades, subjects, quizzes; students take quizzes and view progress.",
       category: "web",
-      images: [projImg1, projImg11],
+      images: [easyQuizImg],
+      tags: ["MERN", "Tailwind", "Role-based", "REST API"],
+      github: "https://github.com/chathumi25/Easy-Quiz",
+      live: HOST_PLACEHOLDER,
+      features: [
+        "Admin dashboard",
+        "Progress tracking",
+        "Quiz results & ranking",
+        "Student management",
+      ],
     },
     {
       id: 2,
-      title: "LitLens Book Rating web",
-      description: "Design & Development",
+      title: "Expense Tracker",
+      description:
+        "Track income and expenses, charts, recent activity and full CRUD operations.",
       category: "web",
-      images: [projImg2],
+      images: [expenseImg],
+      tags: ["MERN", "Charts", "Tailwind"],
+      github: "https://github.com/chathumi25/expense-tracker",
+      live: HOST_PLACEHOLDER,
+      features: ["CRUD", "Chart visualisation", "Filters & history"],
     },
     {
       id: 3,
-      title: "Plan Ease Todo App",
-      description: "Design & Development",
-      category: "mobile",
-      images: [projImg3],
+      title: "Solar Vision",
+      description:
+        "Solar energy monitoring system with real-time tracking & analytics.",
+      category: "web",
+      images: [solarImg],
+      tags: ["MERN", "Realtime", "MongoDB"],
+      github: "https://github.com/chathumi25/Solar-Vision",
+      live: HOST_PLACEHOLDER,
+      features: ["Realtime tracking", "Usage patterns", "Alerts"],
     },
     {
       id: 4,
-      title: "School Management System",
-      description: "Design & Development",
+      title: "Library Management System",
+      description:
+        "Books CRUD, borrow/return flow and admin dashboard.",
       category: "web",
-      images: [projImg4],
+      images: [miniImg],
+      tags: ["MERN", "MySQL", "CRUD"],
+      github: "https://github.com/iro2002/Web-project---Library-Management-System",
+      live: HOST_PLACEHOLDER,
+      features: ["Book management", "Borrow/Return system"],
     },
     {
       id: 5,
-      title: "Sanake Game",
-      description: "Design & Development",
+      title: "Internship Management System (IMS)",
+      description:
+        "MERN + MySQL system for managing student internships, company details, supervisors and progress reports.",
       category: "web",
-      images: [projImg5],
+      images: [ismImg],
+      tags: ["MERN", "MySQL", "Admin Panel", "Student Portal"],
+      github: "#",
+      live: HOST_PLACEHOLDER,
+      features: [
+        "Student–company assignment",
+        "Supervisor details",
+        "Internship progress tracking",
+        "Admin dashboard controls",
+      ],
     },
     {
       id: 6,
-      title: "Personal Portfolio",
-      description: "Development",
-      category: "web",
-      images: [projImg6],
+      title: "Campus Plus (Mobile)",
+      description:
+        "Faculty news & announcements app with admin posting.",
+      category: "mobile",
+      images: [campusPlusImg],
+      tags: ["Android", "Java", "Firebase"],
+      github: "#",
+      live: HOST_PLACEHOLDER,
+      features: ["News feed", "Admin controls"],
+    },
+    {
+      id: 7,
+      title: "Quick Swap (Mobile)",
+      description:
+        "Mobile buy & sell marketplace application.",
+      category: "mobile",
+      images: [quickSwapImg],
+      tags: ["Android", "E-commerce"],
+      github: "#",
+      live: HOST_PLACEHOLDER,
+      features: ["Orders", "Product listing"],
     },
   ];
-
-  // Filter functions
-  const webProjects = projects.filter(project => project.category === "web");
-  const mobileProjects = projects.filter(project => project.category === "mobile");
-
 
   const handleShow = (project) => {
     setSelectedProject(project);
     setCurrentIndex(0);
     setShowModal(true);
-    document.body.classList.add("hide-navbar");
   };
 
   const handleClose = () => {
-    setSelectedProject(null);
     setShowModal(false);
-    document.body.classList.remove("hide-navbar");
-  };
-
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) =>
-        (prevIndex + 1) % selectedProject.images.length
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentIndex((prevIndex) =>
-        (prevIndex - 1 + selectedProject.images.length) % selectedProject.images.length
-    );
+    setSelectedProject(null);
   };
 
   return (
-      <section className="project" id="projects">
+    <section className="projects-section" id="projects">
+      <div className="projects-wrapper">
         <Container>
-          <Row>
-            <Col size={12}>
-              <TrackVisibility>
-                {({ isVisible }) =>
-                    <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                      <h2>Projects</h2>
-                      <p>Showcasing My Work: A Collection of Projects</p>
-                      <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                        <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                          <Nav.Item>
-                            <Nav.Link eventKey="first">All</Nav.Link>
-                          </Nav.Item>
-                          <Nav.Item>
-                            <Nav.Link eventKey="second">Web Applications</Nav.Link>
-                          </Nav.Item>
-                          <Nav.Item>
-                            <Nav.Link eventKey="third">Mobile Applications</Nav.Link>
-                          </Nav.Item>
-                        </Nav>
-                        <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                          {/* All projects */}
-                          <Tab.Pane eventKey="first">
-                            <Row>
-                              {projects.map((project) => (
-                                  <Col size={12} sm={6} md={4} key={project.id}>
-                                    <ProjectCard
-                                        title={project.title}
-                                        description={project.description}
-                                        imgUrl={project.images[0]}
-                                        onClick={() => handleShow(project)}
-                                    />
-                                  </Col>
-                              ))}
-                            </Row>
-                          </Tab.Pane>
+          <TrackVisibility>
+            {({ isVisible }) => (
+              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
 
-                          {/* Web Applications */}
-                          <Tab.Pane eventKey="second">
-                            <Row>
-                              {webProjects.length > 0 ? (
-                                  webProjects.map((project) => (
-                                      <Col size={12} sm={6} md={4} key={project.id}>
-                                        <ProjectCard
-                                            title={project.title}
-                                            description={project.description}
-                                            imgUrl={project.images[0]}
-                                            onClick={() => handleShow(project)}
-                                        />
-                                      </Col>
-                                  ))
-                              ) : (
-                                  <Col>
-                                    <p className="text-center">No web projects found</p>
-                                  </Col>
-                              )}
-                            </Row>
-                          </Tab.Pane>
+                {/* CENTERED HEADER */}
+                <h2 className="projects-title text-center">Featured Projects</h2>
+                <p className="projects-sub text-center">
+                  Selected work built using MERN, Android, SQL.
+                </p>
 
-                          {/* Mobile Applications */}
-                          <Tab.Pane eventKey="third">
-                            <Row>
-                              {mobileProjects.length > 0 ? (
-                                  mobileProjects.map((project) => (
-                                      <Col size={12} sm={6} md={4} key={project.id}>
-                                        <ProjectCard
-                                            title={project.title}
-                                            description={project.description}
-                                            imgUrl={project.images[0]}
-                                            onClick={() => handleShow(project)}
-                                        />
-                                      </Col>
-                                  ))
-                              ) : (
-                                  <Col>
-                                    <p className="text-center">No mobile projects found</p>
-                                  </Col>
-                              )}
-                            </Row>
-                          </Tab.Pane>
-                        </Tab.Content>
-                      </Tab.Container>
-                    </div>}
-              </TrackVisibility>
-            </Col>
-          </Row>
+                <Tab.Container id="projects-tabs" defaultActiveKey="all">
+                  <Nav variant="pills" className="nav-pills mb-4 justify-content-center">
+                    <Nav.Item><Nav.Link eventKey="all">All</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="web">Web Applications</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="mobile">Mobile Applications</Nav.Link></Nav.Item>
+                  </Nav>
+
+                  <Tab.Content>
+                    <Tab.Pane eventKey="all">
+                      <Row>
+                        {projects.map((p) => (
+                          <Col key={p.id} xs={12} md={6} className="mb-4">
+                            <ProjectCard {...p} imgUrl={p.images[0]} />
+                          </Col>
+                        ))}
+                      </Row>
+                    </Tab.Pane>
+
+                    <Tab.Pane eventKey="web">
+                      <Row>
+                        {projects.filter(p => p.category === "web").map((p) => (
+                          <Col key={p.id} xs={12} md={6} className="mb-4">
+                            <ProjectCard {...p} imgUrl={p.images[0]} />
+                          </Col>
+                        ))}
+                      </Row>
+                    </Tab.Pane>
+
+                    <Tab.Pane eventKey="mobile">
+                      <Row>
+                        {projects.filter(p => p.category === "mobile").map((p) => (
+                          <Col key={p.id} xs={12} md={6} className="mb-4">
+                            <ProjectCard {...p} imgUrl={p.images[0]} />
+                          </Col>
+                        ))}
+                      </Row>
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Tab.Container>
+
+              </div>
+            )}
+          </TrackVisibility>
         </Container>
+      </div>
 
-        <img className="background-image-right" src={colorSharp2} alt="background-image" />
+      {/* Background */}
+      <img className="background-image-right" src={colorSharp2} alt="" style={{ opacity: 0.22 }} />
 
-        {/* Modal for image slider */}
-        <Modal
-            show={showModal}
-            onHide={handleClose}
-            centered
-            size="lg"
-            dialogClassName="image-only-modal"
-        >
-          <button className="close-btn" onClick={handleClose}>&times;</button>
+      {/* MODAL */}
+      <Modal show={showModal} onHide={handleClose} centered size="lg">
+        <Modal.Body className="p-0 position-relative">
+          <button
+            onClick={handleClose}
+            className="position-absolute"
+            style={{
+              right: 12,
+              top: 12,
+              zIndex: 20,
+              background: "transparent",
+              border: "none",
+              fontSize: 26,
+              color: "#fff",
+              cursor: "pointer",
+            }}
+          >
+            ×
+          </button>
 
           {selectedProject && (
-              <div className="image-slider-container">
-                {selectedProject.images.length > 1 && (
-                    <button
-                        className="nav-arrow"
-                        onClick={prevImage}
-                    >
-                      &#10094;
-                    </button>
-                )}
+            <div className="p-3 bg-dark" style={{ color: "#fff" }}>
 
-                <img
+              <div className="d-flex gap-3 flex-wrap">
+                <div style={{ flex: 1 }}>
+                  <img
                     src={selectedProject.images[currentIndex]}
                     alt={selectedProject.title}
-                    className="slider-image"
-                />
+                    style={{ width: "100%", height: 300, objectFit: "cover", borderRadius: 8 }}
+                  />
+                </div>
 
-                {selectedProject.images.length > 1 && (
-                    <button
-                        className="nav-arrow"
-                        onClick={nextImage}
-                    >
-                      &#10095;
-                    </button>
-                )}
+                <div style={{ width: 30 }}>
+                  <h4>{selectedProject.title}</h4>
+                  <p className="text-muted" style={{ textAlign: "justify" }}>
+                    {selectedProject.description}
+                  </p>
+
+                  <div className="mb-2">
+                    {selectedProject.tags.map((t) => (
+                      <span key={t} className="badge bg-secondary me-1">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <strong>Features</strong>
+                  <ul style={{ paddingLeft: 18 }}>
+                    {selectedProject.features.map((f, i) => (
+                      <li key={i} className="small">{f}</li>
+                    ))}
+                  </ul>
+
+                  <div className="d-flex gap-2 mt-2">
+                    <a className="btn btn-outline-light btn-sm" href={selectedProject.github}>Code</a>
+                    <a className="btn btn-primary btn-sm" href={selectedProject.live}>Live Demo</a>
+                  </div>
+                </div>
               </div>
+
+              {/* IMAGE SLIDER */}
+              {selectedProject.images.length > 1 && (
+                <div className="d-flex justify-content-between align-items-center mt-3">
+                  <Button variant="light" size="sm">
+                    ‹ Prev
+                  </Button>
+                  <span className="text-muted small">
+                    Image {currentIndex + 1} of {selectedProject.images.length}
+                  </span>
+                  <Button variant="light" size="sm">
+                    Next ›
+                  </Button>
+                </div>
+              )}
+
+            </div>
           )}
-        </Modal>
-      </section>
+
+        </Modal.Body>
+      </Modal>
+    </section>
   );
 };
+
+export default Projects;

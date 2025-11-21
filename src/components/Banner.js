@@ -1,93 +1,156 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
+import headerImg from "../assets/img/header-img.png";
 import DilmiCV from "../assets/img/cv.pdf";
-
-import { ArrowRightCircle } from 'react-bootstrap-icons';
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { ArrowRightCircle } from "react-bootstrap-icons";
+import "animate.css";
+import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = [ "Fullstack Developer","Frontend Developer", "Backend Developer"];
+
+  const toRotate = ["Fullstack Developer", "Frontend Developer", "Backend Developer"];
   const period = 2000;
 
   useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => { clearInterval(ticker) };
-  }, [text])
+    let ticker = setInterval(() => tick(), delta);
+    return () => clearInterval(ticker);
+  }, [text]);
 
   const tick = () => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+
+    let updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
 
     setText(updatedText);
 
-    if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
-    }
+    if (isDeleting) setDelta(prev => prev / 2);
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      setIndex(prevIndex => prevIndex - 1);
       setDelta(period);
-    } else if (isDeleting && updatedText === '') {
+    } else if (isDeleting && updatedText === "") {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(500);
-    } else {
-      setIndex(prevIndex => prevIndex + 1);
+      setDelta(400);
     }
-  }
+  };
 
   return (
-    <section className="banner" id="home">
+    <section
+      className="banner"
+      id="home"
+      style={{
+        background: "linear-gradient(135deg, #00060d 0%, #001a33 30%, #003366 70%, #050505 100%)",
+        padding: "180px 0 260px 0",
+      }}
+    >
       <Container>
-        <Row className="aligh-items-center">
-          <Col xs={12} md={6} xl={7}>
+        <Row className="align-items-center">
+
+          {/* LEFT — IMAGE */}
+          <Col xs={12} md={5} className="text-center mb-4 mb-md-0">
             <TrackVisibility>
-              {({ isVisible }) =>
-                  <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                    <span className="tagline">Welcome to my Portfolio</span>
-
-                    {/* ✅ ONLY NAME UPDATED */}
-                    <h1>{`Hi! I'm Chathumi `} 
-                      <span className="txt-rotate" dataperiod="1000"
-                        data-rotate='[ "Frontend Developer", "Fullstack Developer" ]'>
-                        <span className="wrap">{text}</span>
-                      </span>
-                    </h1>
-
-                    <a
-                        href={DilmiCV}
-                        download="Chathumi-CV.pdf"
-                        className="btn-download"
-                    >
-                      Download CV <ArrowRightCircle size={25}/>
-                    </a>
-                  </div>}
+              {({ isVisible }) => (
+                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                  <img
+                    src={headerImg}
+                    alt="Profile"
+                    style={{
+                      width: "440px",
+                      maxWidth: "100%",
+                      borderRadius: "50%",
+                      border: "5px solid rgba(255,255,255,0.25)",
+                      boxShadow: "0 0 35px rgba(255,255,255,0.18)",
+                    }}
+                  />
+                </div>
+              )}
             </TrackVisibility>
           </Col>
 
-          <Col xs={12} md={6} xl={5}>
+          {/* RIGHT — TEXT */}
+          <Col xs={12} md={7}>
             <TrackVisibility>
-              {({isVisible}) =>
-                  <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                    <img src={headerImg} alt="Header Img"/>
-                  </div>}
+              {({ isVisible }) => (
+                <div className={isVisible ? "animate__animated animate__fadeInRight" : ""}>
+
+                  {/* Tagline */}
+                  <span
+                    style={{
+                      display: "inline-block",
+                      padding: "6px 18px",
+                      borderRadius: "8px",
+                      background: "rgba(255,255,255,0.12)",
+                      border: "2px solid rgba(255,255,255,0.22)",
+                      color: "#fff",
+                      fontSize: "43px",
+                      marginBottom: "85px",
+                      fontWeight: 800,
+                      letterSpacing: "2px",
+                    }}
+                  >
+                    Welcome to My Portfolio 👋🚀
+                  </span>
+
+                  {/* Main Heading */}
+                  <h1
+                    style={{
+                      fontSize: "60px",
+                      fontWeight: 800,
+                      lineHeight: "1.2",
+                      color: "#fff",
+                      marginBottom: "25px",
+                    }}
+                  >
+                    Hi! I'm <span style={{ color: "#7fbcff",fontSize: "70px", }}>Chathumi Rathnayaka</span>
+                    <br />
+                    <span className="txt-rotate">
+                      <span className="wrap">{text}</span>
+                    </span>
+                  </h1>
+
+                  {/* Description */}
+                  <p
+                    style={{
+                      color: "#d4d4d4",
+                      fontSize: "18px",
+                      marginBottom: "35px",
+                      marginTop: "65px",
+                      
+                      maxWidth: "550px",
+                      lineHeight: "2",
+                    }}
+                  >
+                    A passionate developer who builds clean, modern and scalable
+                    web applications with a focus on performance and user-friendly design.
+                  </p>
+
+
+                  
+
+                  {/* Button */}
+                  <a
+                    href={DilmiCV}
+                    download="Chathumi-CV.pdf"
+                    className="btn-download"
+                  >
+                    Download CV <ArrowRightCircle size={25} />
+                  </a>
+
+                </div>
+              )}
             </TrackVisibility>
           </Col>
+
         </Row>
       </Container>
     </section>
-  )
-}
+  );
+};

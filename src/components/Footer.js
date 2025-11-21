@@ -1,26 +1,38 @@
-import { Container, Row, Col } from "react-bootstrap";
-import logo from "../assets/img/logo.svg";
-import navIcon1 from "../assets/img/nav-icon1.svg";
-import github from '../assets/img/github.png';
-
+import { Container } from "react-bootstrap";
+import linkedinIcon from "../assets/img/nav-icon1.svg";
+import githubIcon from "../assets/img/github.png";
 
 export const Footer = () => {
   return (
     <footer className="footer">
       <Container>
-        <Row className="align-items-center">
-          <Col size={12} sm={6}>
-            <img src={logo} alt="Logo" />
-          </Col>
-          <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
-              <a href="http://www.linkedin.com/in/dilmi-ishara-wimalaweera-9891752a2"><img src={navIcon1} alt="Icon" /></a>
-              <a href="https://github.com/dilmiishara"><img src={github} alt="Icon" /></a>
-            </div>
-            <p>Copyright 2022. All Rights Reserved</p>
-          </Col>
-        </Row>
+
+        {/* Name */}
+        <h4 className="footer-name">Chathumi Rathnayaka</h4>
+
+        {/* Social Icons */}
+        <div className="footer-social">
+          <a 
+            href="https://www.linkedin.com/in/chathumi-rathnayaka-53b813398"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={linkedinIcon} alt="LinkedIn" />
+          </a>
+
+          <a 
+            href="https://github.com/chathumi25"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={githubIcon} alt="GitHub" />
+          </a>
+        </div>
+
+        {/* Copyright */}
+        <p className="footer-copy">© {new Date().getFullYear()} All Rights Reserved</p>
+
       </Container>
     </footer>
-  )
-}
+  );
+};

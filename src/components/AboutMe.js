@@ -1,69 +1,101 @@
-import colorSharp from "../assets/img/color-sharp.png";
-import profile from "../assets/img/profile.jpg";
-
 export const AboutMe = () => {
   return (
-    <section className="about" id="about">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="about-bx wow zoomIn">
-              <h2>About Me</h2>
-              <p>
-               I'm Chathumi Rathnayaka, a third-year undergraduate actively seeking an internship opportunity.As a passionate Full Stack Developer, I enjoy building modern, user-focused, and scalable web applications.Explore my portfolio to discover my skills, projects, and hands-on experience in software development.
-              </p>
-              <div className="row align-items-center">
-                {/* Profile Picture */}
-                <div className="col-md-4 text-center">
-                  <img
-                    src={profile}
-                    alt="profileimg"
-                    style={{ width: "18vw", maxWidth: "100%"}}
-                  />
-                </div>
+    <section id="about" className="about"
+      style={{
+        width: "100%",
+        padding: "70px 0",
+        background: "linear-gradient(135deg, #000814 0%, #00172b 25%, #00305d 60%, #04111d 100%)",
+      }}
+    >
+      {/* TITLE */}
+      <h2
+        className="fw-bold text-center"
+        style={{
+          fontSize: "3.6rem",
+          color: "#fff",
+          marginBottom: "30px",
+        }}
+      >
+        About Me
+      </h2>
 
-                {/* Details Section */}
-                <div className="col-md-8">
-                  <h3 style={{ textAlign: "center", marginBottom: "15px" }}>
-                    Undergraduate student
-                  </h3>
-                  <div className="row">
-                    {/* Details Column 1 */}
-                    <div className="col-md-6">
-                      <p style={{ marginBottom: "5px" }}>
-                        <strong>Birthday:</strong> 25. 07. 2001
-                      </p>
-                      <p style={{ marginBottom: "5px" }}>
-                        <strong>Website:</strong> Not available
-                      </p>
-                      <p style={{ marginBottom: "5px" }}>
-                        <strong>Phone:</strong> +94 77 924 3878
-                      </p>
-                      <p style={{ marginBottom: "5px" }}>
-                        <strong>City:</strong> Demodara, Sri Lanka
-                      </p>
-                    </div>
+      {/* INTRO */}
+      <p
+        style={{
+          maxWidth: "780px",
+          margin: "0 auto 50px auto",
+          fontSize: "1.25rem",
+          lineHeight: "1.9",
+          textAlign: "center",
+          color: "#d7d7d7",
+        }}
+      >
+        I’m <strong style={{ color: "#fff" }}>Chathumi Rathnayaka</strong>, a
+        third-year undergraduate specializing in MERN-stack development.
+        I enjoy building modern, responsive, and user-friendly applications,
+        and I’m seeking an internship to grow professionally.
+      </p>
 
-                    {/* Details Column 2 */}
-                    <div className="col-md-6">
-                      <p style={{ marginBottom: "5px" }}>
-                        <strong>Age:</strong> 24
-                      </p>
-                      <p style={{ marginBottom: "5px" }}>
-                        <strong>Degree:</strong> Bachelor of Information & Communication Technology (Honours)
-                      </p>
-                      <p style={{ marginBottom: "5px" }}>
-                        <strong>Email:</strong> chathumiofficial@gmail.com
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* CARD GRID */}
+      <div
+        className="about-content"
+        style={{
+          display: "flex",
+          gap: "25px",
+          justifyContent: "center",
+          width: "90%",
+          maxWidth: "1500px",
+          margin: "0 auto",
+        }}
+      >
+        {/* CARD 1 */}
+        <div className="about-card glass-card">
+          <h4>Personal Details</h4>
+          <p><strong>Birthday:</strong> 25.07.2001</p>
+          <p><strong>Phone:</strong> +94 77 924 3878</p>
+          <p><strong>City:</strong> Demodara, Sri Lanka</p>
+          <p><strong>Age:</strong> 24</p>
+          <p><strong>Email:</strong> chathumirathnayka@gmail.com</p>
+        </div>
+
+        {/* CARD 2 */}
+        <div className="about-card glass-card">
+          <h4>Education</h4>
+          <p><strong>A/L (2021):</strong> ABB</p>
+
+          <p>
+            <strong>BICT (Honours)</strong><br />
+            University of Colombo
+          </p>
+
+          <p><strong>Main Courses:</strong></p>
+          <ul>
+            <li>Programming (Python, C)</li>
+            <li>OOP (Java)</li>
+            <li>DBMS</li>
+            <li>Web Application Development</li>
+          </ul>
+        </div>
+
+        {/* CARD 3 */}
+        <div className="about-card glass-card">
+          <h4>Certifications</h4>
+
+          <strong>University of Moratuwa</strong>
+          <ul>
+            <li>Python for Beginners</li>
+            <li>Web Design for Beginners</li>
+            <li>Python Programming</li>
+            <li>Front-End Development</li>
+            <li>Server-side Programming</li>
+          </ul>
+
+          <strong>Postman Certified</strong>
+          <ul>
+            <li>API Fundamentals Student Expert</li>
+          </ul>
         </div>
       </div>
-      <img className="background-image-left" src={colorSharp} alt="Background" />
     </section>
   );
 };

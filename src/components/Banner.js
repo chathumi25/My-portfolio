@@ -92,9 +92,6 @@ export const Banner = () => {
                       color: "#fff",
                       fontSize: "23px",
                       marginBottom: "45px",
-
-                     
-                      
                       fontWeight: 800,
                       letterSpacing: "2px",
                     }}
@@ -110,10 +107,12 @@ export const Banner = () => {
                       lineHeight: "1.2",
                       color: "#fff",
                       marginBottom: "45px",
-                      
                     }}
                   >
-                    Hi! I'm <span style={{ color: "#7fbcff",fontSize: "42px", }}>Chathumi Rathnayaka</span>
+                    Hi! I'm{" "}
+                    <span style={{ color: "#7fbcff", fontSize: "42px" }}>
+                      Chathumi Rathnayaka
+                    </span>
                     <br />
                     <span className="txt-rotate">
                       <span className="wrap">{text}</span>
@@ -127,7 +126,6 @@ export const Banner = () => {
                       fontSize: "18px",
                       marginBottom: "35px",
                       marginTop: "65px",
-                      
                       maxWidth: "550px",
                       lineHeight: "2",
                     }}
@@ -136,13 +134,10 @@ export const Banner = () => {
                     web applications with a focus on performance and user-friendly design.
                   </p>
 
-
-                  
-
                   {/* Button */}
                   <a
                     href={DilmiCV}
-                    download="Chathumi-CV.pdf"
+                    download="Chathumi Rathnayaka (CV).pdf"
                     className="btn-download"
                   >
                     Download CV <ArrowRightCircle size={25} />

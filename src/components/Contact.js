@@ -8,16 +8,25 @@ import emailIcon from "../assets/img/emailicon.png";
 import phoneIcon from "../assets/img/phone.svg";
 
 export const Contact = () => {
-  const handleLinkedInClick = () => {
-    window.open("https://www.linkedin.com/in/chathumi-rathnayaka-53b813398", "_blank");
-  };
+  const openLink = (url) => window.open(url, "_blank");
+  const callPhone = () => window.open("tel:+94779243878", "_self");
+  const sendEmail = () => window.open("mailto:chathumirathnayka@gmail.com", "_self");
 
-  const handleEmailClick = () => {
-    window.open("mailto:chathumirathnayka@gmail.com", "_blank");
-  };
-
-  const handlePhoneClick = () => {
-    window.open("tel:+94779243878", "_self");
+  // 🔥 Fully cleaned common button style
+  const btnStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",   // EXACT LEFT ALIGN
+    gap: "14px",
+    width: "100%",
+    padding: "16px 20px",
+    background: "rgba(255, 255, 255, 0.08)",
+    border: "1px solid rgba(255, 255, 255, 0.18)",
+    borderRadius: "14px",
+    color: "#fff",
+    fontSize: "17px",
+    textAlign: "left",
+    cursor: "pointer",
   };
 
   return (
@@ -25,20 +34,20 @@ export const Contact = () => {
       <Container>
         <Row className="align-items-center">
 
-          {/* LEFT SIDE IMAGE */}
-          <Col md={6} className="mb-4">
+          {/* LEFT IMAGE */}
+          <Col md={6} className="mb-5">
             <TrackVisibility>
               {({ isVisible }) => (
                 <img
-                  className={isVisible ? "animate__animated animate__zoomIn" : ""}
                   src={contactImg}
                   alt="Contact"
+                  className={isVisible ? "animate__animated animate__zoomIn" : ""}
                 />
               )}
             </TrackVisibility>
           </Col>
 
-          {/* RIGHT SIDE TEXT + BUTTONS */}
+          {/* RIGHT CONTENT */}
           <Col md={6}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -47,85 +56,34 @@ export const Contact = () => {
                   <h2 className="mb-4 contact-title">Get In Touch</h2>
 
                   {/* CONTACT BUTTONS */}
-<div className="new-email-bx d-flex flex-column gap-3 ">
+                  <div className="d-flex flex-column gap-3">
 
-  {/* PHONE */}
-  <button
-    type="button"
-    onClick={handlePhoneClick}
-    style={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex",   // left alignment
-      textAlign: "left",
-      gap: "16px",
-      padding: "16px 22px",
-      width: "100%",
-      background: "rgba(255,255,255,0.08)",
-      border: "1px solid rgba(255,255,255,0.18)",
-      borderRadius: "14px",
-      color: "white",
-      fontSize: "17px"
-    }}
-  >
-    <img src={phoneIcon} alt="phone" style={{ width: "22px", height: "22px" }} />
-    077 924 3878
-  </button>
+                    {/* PHONE */}
+                    <button style={btnStyle} onClick={callPhone}>
+                      <img src={phoneIcon} alt="Phone" style={{ width: "22px" }} />
+                      <span>077 924 3878</span>
+                    </button>
 
-  {/* EMAIL */}
-  <button
-    type="button"
-    onClick={handleEmailClick}
-    style={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-start",
-      textAlign: "left",
-      gap: "16px",
-      padding: "16px 22px",
-      width: "100%",
-      background: "rgba(255,255,255,0.08)",
-      border: "1px solid rgba(255,255,255,0.18)",
-      borderRadius: "14px",
-      color: "white",
-      fontSize: "17px"
-    }}
-  >
-    <img src={emailIcon} alt="email" style={{ width: "22px", height: "22px" }} />
-    chathumirathnayka@gmail.com
-  </button>
+                    {/* EMAIL */}
+                    <button style={btnStyle} onClick={sendEmail}>
+                      <img src={emailIcon} alt="Email" style={{ width: "22px" }} />
+                      <span>chathumirathnayka@gmail.com</span>
+                    </button>
 
-  {/* LINKEDIN */}
-  <button
-    type="button"
-    onClick={handleLinkedInClick}
-    style={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-start",
-      textAlign: "left",
-      gap: "16px",
-      padding: "16px 22px",
-      width: "100%",
-      background: "rgba(255,255,255,0.08)",
-      border: "1px solid rgba(255,255,255,0.18)",
-      borderRadius: "14px",
-      color: "white",
-      fontSize: "17px"
-    }}
-  >
-    <img src={linkedinIcon} alt="linkedin" style={{ width: "22px", height: "22px" }} />
-    LinkedIn Profile
-  </button>
+                    {/* LINKEDIN */}
+                    <button
+                      style={btnStyle}
+                      onClick={() => openLink("https://www.linkedin.com/in/chathumi-rathnayaka-53b813398")}
+                    >
+                      <img src={linkedinIcon} alt="LinkedIn" style={{ width: "22px" }} />
+                      <span>LinkedIn Profile</span>
+                    </button>
 
-</div>
+                  </div>
 
-                  {/* ========================= */}
-                  {/* BOTTOM PROFESSIONAL TEXT  */}
-                  {/* ========================= */}
-
-                  <p className="contact-bottom-text">
-                    Whether you have an opportunity, a question, or just want to say hello  
+                  {/* EXTRA TEXT */}
+                  <p className="contact-bottom-text mt-4">
+                    Whether you have an opportunity, a question, or just want to say hello, 
                     I’m always open to connecting. Feel free to reach out anytime.
                   </p>
 
@@ -135,15 +93,11 @@ export const Contact = () => {
 
                   
 
-                  {/* FOOTER */}
-                  <div className="contact-footer">
-                    © {new Date().getFullYear()} Chathumi Rathnayaka — All Rights Reserved
-                  </div>
-
                 </div>
               )}
             </TrackVisibility>
           </Col>
+
         </Row>
       </Container>
     </section>

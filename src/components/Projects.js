@@ -275,7 +275,7 @@ export const Projects = () => {
               zIndex: 20,
               background: "transparent",
               border: "none",
-              fontSize: 26,
+              fontSize: 16,
               color: "#fff",
               cursor: "pointer",
             }}

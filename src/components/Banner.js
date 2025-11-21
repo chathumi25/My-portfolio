@@ -63,7 +63,7 @@ export const Banner = () => {
                     src={headerImg}
                     alt="Profile"
                     style={{
-                      width: "440px",
+                      width: "300px",
                       maxWidth: "100%",
                       borderRadius: "50%",
                       border: "5px solid rgba(255,255,255,0.25)",
@@ -90,8 +90,11 @@ export const Banner = () => {
                       background: "rgba(255,255,255,0.12)",
                       border: "2px solid rgba(255,255,255,0.22)",
                       color: "#fff",
-                      fontSize: "43px",
-                      marginBottom: "85px",
+                      fontSize: "23px",
+                      marginBottom: "45px",
+
+                     
+                      
                       fontWeight: 800,
                       letterSpacing: "2px",
                     }}
@@ -102,14 +105,15 @@ export const Banner = () => {
                   {/* Main Heading */}
                   <h1
                     style={{
-                      fontSize: "60px",
+                      fontSize: "40px",
                       fontWeight: 800,
                       lineHeight: "1.2",
                       color: "#fff",
-                      marginBottom: "25px",
+                      marginBottom: "45px",
+                      
                     }}
                   >
-                    Hi! I'm <span style={{ color: "#7fbcff",fontSize: "70px", }}>Chathumi Rathnayaka</span>
+                    Hi! I'm <span style={{ color: "#7fbcff",fontSize: "42px", }}>Chathumi Rathnayaka</span>
                     <br />
                     <span className="txt-rotate">
                       <span className="wrap">{text}</span>

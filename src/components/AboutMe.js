@@ -3,15 +3,16 @@ export const AboutMe = () => {
     <section id="about" className="about"
       style={{
         width: "100%",
-        padding: "70px 0",
+        padding: "40px 0",
         background: "linear-gradient(135deg, #000814 0%, #00172b 25%, #00305d 60%, #04111d 100%)",
+
       }}
     >
       {/* TITLE */}
       <h2
         className="fw-bold text-center"
         style={{
-          fontSize: "3.6rem",
+          fontSize: "3.3rem",
           color: "#fff",
           marginBottom: "30px",
         }}
@@ -24,7 +25,7 @@ export const AboutMe = () => {
         style={{
           maxWidth: "780px",
           margin: "0 auto 50px auto",
-          fontSize: "1.25rem",
+          fontSize: "1.2rem",
           lineHeight: "1.9",
           textAlign: "center",
           color: "#d7d7d7",

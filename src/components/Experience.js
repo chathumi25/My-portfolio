@@ -21,10 +21,11 @@ export const Experience = () => {
 
           <p className="exp-description">
             As a third-year undergraduate with a strong foundation in full stack
-            development, I am actively seeking an internship opportunity to apply
-            my skills in real-world software engineering projects. I have hands-on
-            experience with modern web technologies, problem-solving, and building
-            responsive applications through academic projects and self-learning.
+            development,
+            I am actively seeking an internship opportunity to apply
+            my skills in real-world software engineering projects.
+            I have hands-on experience with modern web technologies, problem-solving, 
+            and building responsive applications through academic projects and self-learning.
             I am eager to contribute to a dynamic team, learn industry best
             practices, and grow as a developer.
           </p>

@@ -562,7 +562,7 @@ article .icon {
 
 /* Card titles */
 .about-card h4 {
-  font-size: 1.6rem;
+  font-size: 1.0rem;
   margin-bottom: 15px;
   color: #fff;
 }
@@ -706,7 +706,7 @@ article .icon {
 ******************************************/
 
 .experience-section {
-  width: 1900px;
+  width: flex;
   height: 800px;
   padding: 60px 0;
   background: linear-gradient(135deg, #00060d, #01182f 30%, #00345a 60%, #02070c);
@@ -734,21 +734,21 @@ article .icon {
 }
 
 .exp-role {
-  font-size: 36px;
+  font-size: 25px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .exp-subtitle {
-  font-size: 32px;
+  font-size: 20px;
   opacity: 0.85;
   text-align: center;
   margin-bottom: 60px;
 }
 
 .exp-description {
-  font-size: 25px;
+  font-size: 20px;
   line-height: 1.7;
   opacity: 0.9;
   text-align: center;
@@ -952,6 +952,8 @@ article .icon {
   height: 24px;
 }
 
+
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .contact {
@@ -1001,28 +1003,27 @@ article .icon {
 
 .linkedin-btn {
   background: rgba(255,255,255,0.08);
-  padding: 14px 18px;
+  padding: 16px 22px;
   width: 100%;
   color: #ffffff;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.18);
 
   display: flex;
-  align-items: center;
-  justify-content: flex-start;   /* LEFT */
+  align-items: center;        /* vertically centered */
+  justify-content: flex-start;/* LEFT align */
+  gap: 16px;                  /* space between icon & text */
 
-  gap: 8px;                      /* smaller gap */
   font-size: 17px;
   transition: 0.25s ease;
-  text-align: left;
+  text-align: left;           /* text stays left */
 }
 
-
-
-.linkedin-btn:hover {
-  background: rgba(255,255,255,0.16);
-  transform: translateY(-3px);
+.linkedin-btn img {
+  width: 22px;
+  height: 22px;
 }
+
 
 .linkedin-btn img {
   width: 22px;

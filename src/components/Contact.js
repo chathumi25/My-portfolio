@@ -47,27 +47,78 @@ export const Contact = () => {
                   <h2 className="mb-4 contact-title">Get In Touch</h2>
 
                   {/* CONTACT BUTTONS */}
-                  <div className="new-email-bx d-flex flex-column gap-3">
+<div className="new-email-bx d-flex flex-column gap-3 ">
 
-                    {/* PHONE */}
-                    <button type="button" onClick={handlePhoneClick} className="linkedin-btn">
-                      <img src={phoneIcon} alt="phone" />
-                      077 924 3878
-                    </button>
+  {/* PHONE */}
+  <button
+    type="button"
+    onClick={handlePhoneClick}
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex",   // left alignment
+      textAlign: "left",
+      gap: "16px",
+      padding: "16px 22px",
+      width: "100%",
+      background: "rgba(255,255,255,0.08)",
+      border: "1px solid rgba(255,255,255,0.18)",
+      borderRadius: "14px",
+      color: "white",
+      fontSize: "17px"
+    }}
+  >
+    <img src={phoneIcon} alt="phone" style={{ width: "22px", height: "22px" }} />
+    077 924 3878
+  </button>
 
-                    {/* EMAIL */}
-                    <button type="button" onClick={handleEmailClick} className="linkedin-btn">
-                      <img src={emailIcon} alt="email" />
-                      chathumirathnayka@gmail.com
-                    </button>
+  {/* EMAIL */}
+  <button
+    type="button"
+    onClick={handleEmailClick}
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      textAlign: "left",
+      gap: "16px",
+      padding: "16px 22px",
+      width: "100%",
+      background: "rgba(255,255,255,0.08)",
+      border: "1px solid rgba(255,255,255,0.18)",
+      borderRadius: "14px",
+      color: "white",
+      fontSize: "17px"
+    }}
+  >
+    <img src={emailIcon} alt="email" style={{ width: "22px", height: "22px" }} />
+    chathumirathnayka@gmail.com
+  </button>
 
-                    {/* LINKEDIN */}
-                    <button type="button" onClick={handleLinkedInClick} className="linkedin-btn">
-                      <img src={linkedinIcon} alt="linkedin" />
-                      LinkedIn Profile
-                    </button>
+  {/* LINKEDIN */}
+  <button
+    type="button"
+    onClick={handleLinkedInClick}
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      textAlign: "left",
+      gap: "16px",
+      padding: "16px 22px",
+      width: "100%",
+      background: "rgba(255,255,255,0.08)",
+      border: "1px solid rgba(255,255,255,0.18)",
+      borderRadius: "14px",
+      color: "white",
+      fontSize: "17px"
+    }}
+  >
+    <img src={linkedinIcon} alt="linkedin" style={{ width: "22px", height: "22px" }} />
+    LinkedIn Profile
+  </button>
 
-                  </div>
+</div>
 
                   {/* ========================= */}
                   {/* BOTTOM PROFESSIONAL TEXT  */}

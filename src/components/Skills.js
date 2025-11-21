@@ -31,7 +31,7 @@ export const Skills = () => {
     <section className="skill" id="skills">
       <div className="skills-wrapper">
         <h2 style={{ 
-  fontSize: "60px", 
+  fontSize: "3.3rem", 
   textAlign: "center",
   color: "#fff"
 }}>

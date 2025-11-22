@@ -111,17 +111,17 @@ export const Projects = () => {
       ],
     },
     {
-      id: 2,
-      title: "Expense Tracker",
-      description:
-        "Track income and expenses, charts, recent activity and full CRUD operations.",
-      category: "web",
-      images: [expenseImg],
-      tags: ["MERN", "Charts", "Tailwind"],
-      github: "https://github.com/chathumi25/expense-tracker",
-      live: HOST_PLACEHOLDER,
-      features: ["CRUD", "Chart visualisation", "Filters & history"],
-    },
+  id: 2,
+  title: "Expense Tracker",
+  description:
+    "Track income and expenses, charts, recent activity and full CRUD operations.",
+  category: "web",
+  images: [expenseImg],
+  tags: ["MERN", "Charts", "Tailwind"],
+  github: "https://github.com/chathumi25/expense-tracker",
+  live: "https://expense-tracker-five-kappa-41.vercel.app/login",
+  features: ["CRUD", "Chart visualisation", "Filters & history"],
+},
     {
       id: 3,
       title: "Solar Vision",
